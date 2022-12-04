@@ -1,0 +1,5 @@
+selenium
+ipython
+googlesearch-python
+django
+djangorestframework
