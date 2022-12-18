@@ -23,7 +23,7 @@ class BotSearch:
         ادرس المنت سایت ها
         """
         zoomit = '//a[@class="summary-product--price fa-num hidden-xs hidden-sm"]/span/span'
-        digikala = '//div[@class="d-flex ai-center jc-start"]//span[@class="text-h4 ml-1 color-800"]'
+        digikala = '//span[@class="text-h4 ml-1 color-800"]'
         torob = '//div[@class="jsx-478367150 price"]//div[@class="jsx-478367150"]'
         elmaz = '//h2[@itemscope="itemscope"]//strong[@style="color: #1AA603;"]'
 
@@ -59,18 +59,18 @@ class BotSearch:
                         prices.append('زومیت '+price.text)
                         time.sleep(5)
                     except:
-                        prices.append('زومیت :محصول موجود نمی باشد ')
+                        prices.append('زومیت:اعطلاعات موجودنیست! تغیراتی رخ داده.')
                         continue
 
                 if 'digikala' in value:
                     try:
                         driver.get(value)
-                        time.sleep(8)
+                        time.sleep(10)
                         price = driver.find_element(By.XPATH, digikala)
                         prices.append('دیجی کالا '+price.text)
                         time.sleep(2)
                     except:
-                        prices.append('دیجی کالا :محصول موجود نمی باشد ')
+                        prices.append('دیجی کالا :اعطلاعات موجودنیست! تغیراتی رخ داده.')
                         continue
 
 
@@ -81,7 +81,7 @@ class BotSearch:
                         prices.append('ترب '+price.text)
                         time.sleep(5)
                     except:
-                        prices.append('ترب : محصول موجود نمی باشد ')
+                        prices.append('ترب :اعطلاعات موجودنیست! تغیراتی رخ داده.')
                         continue
 
                 if 'emalls' in value:
@@ -91,7 +91,7 @@ class BotSearch:
                         prices.append('ایلماز'+price.text)
                         time.sleep(5)
                     except:
-                        prices.append('ایلماز :محصول موجود نمی باشد ')
+                        prices.append('ایلماز :اعطلاعات موجودنیست! تغیراتی رخ داده.')
                         continue
 
             for num in range(len(url_data)):

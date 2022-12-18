@@ -1,10 +1,10 @@
-from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.viewsets import ModelViewSet
 from .models import SearchBox, ValueSearch
 from .serializers import SearchBoxSerializer, ValueSearchSerializer
 import time
 from .google import BotSearch
+from rest_framework.response import Response
 
 class GoogelSearchAPI(ModelViewSet):
     serializer_class = SearchBoxSerializer
@@ -16,12 +16,14 @@ class GoogelSearchAPI(ModelViewSet):
         serializer.validated_data
         serializer.save()
 
-        #send data to google
+        #get data
         data_search = SearchBox.objects.all().values()
+
+        #get data title
         last_data = data_search[::-1][0]
         data_title = last_data['Text_box']
-        BotSearch.search_results(data_title, 6)
-        # return serializers
+        BotSearch.search_results(data_title, 7)
+        return Response(serializer.data)
 
 @api_view()
 def ValueSearching(request):
