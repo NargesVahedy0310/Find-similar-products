@@ -59,18 +59,18 @@ class BotSearch:
                         prices.append('زومیت '+price.text)
                         time.sleep(5)
                     except:
-                        prices.append('زومیت:اعطلاعات موجودنیست! تغیراتی رخ داده.')
+                        prices.append('زومیت:اعطلاعات موجودنیست! خطایی رخ داده.')
                         continue
 
                 if 'digikala' in value:
                     try:
                         driver.get(value)
-                        time.sleep(10)
+                        time.sleep(15)
                         price = driver.find_element(By.XPATH, digikala)
                         prices.append('دیجی کالا '+price.text)
                         time.sleep(2)
                     except:
-                        prices.append('دیجی کالا :اعطلاعات موجودنیست! تغیراتی رخ داده.')
+                        prices.append('دیجی کالا :اعطلاعات موجودنیست! خطایی رخ داده.')
                         continue
 
 
@@ -81,7 +81,7 @@ class BotSearch:
                         prices.append('ترب '+price.text)
                         time.sleep(5)
                     except:
-                        prices.append('ترب :اعطلاعات موجودنیست! تغیراتی رخ داده.')
+                        prices.append('ترب :اعطلاعات موجودنیست! خطایی رخ داده.')
                         continue
 
                 if 'emalls' in value:
@@ -91,7 +91,7 @@ class BotSearch:
                         prices.append('ایلماز'+price.text)
                         time.sleep(5)
                     except:
-                        prices.append('ایلماز :اعطلاعات موجودنیست! تغیراتی رخ داده.')
+                        prices.append('ایلماز :اعطلاعات موجودنیست! خطایی رخ داده.')
                         continue
 
             for num in range(len(url_data)):
