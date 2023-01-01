@@ -1,4 +1,6 @@
 import time
+import urllib.request
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from googlesearch import search
@@ -6,6 +8,12 @@ from .models import SearchBox
 from .serializers import ValueSearchSerializer
 
 class BotSearch:
+    def connect(host='http://google.com'):
+        try:
+            urllib.request.urlopen(host)  # Python 3.x
+            return True
+        except:
+            return False
 
     def search_results(query, number, advanced=True):
         data_search = SearchBox.objects.all().values()
@@ -104,6 +112,5 @@ class BotSearch:
                 serializer.validated_data
                 serializer.save()
             return serializer
-            print(result)
         get_data()
 

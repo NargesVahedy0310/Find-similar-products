@@ -22,8 +22,12 @@ class GoogelSearchAPI(ModelViewSet):
         #get data title
         last_data = data_search[::-1][0]
         data_title = last_data['Text_box']
-        BotSearch.search_results(data_title, 7)
-        return Response(serializer.data)
+
+        if BotSearch.connect():
+            BotSearch.search_results(data_title, 7)
+            return Response(serializer.data)
+        else:
+            return Response({'error':'check your internet connection'})
 
 @api_view()
 def ValueSearching(request):
